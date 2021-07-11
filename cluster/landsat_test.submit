@@ -10,3 +10,5 @@ transfer_input_files = https://glaciersblob.blob.core.windows.net/lakes/le7-2015
 request_cpus = 1
 request_memory = 500MB
 request_disk = 6GB
+
+queue
