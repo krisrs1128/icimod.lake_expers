@@ -1,5 +1,5 @@
 universe = docker
-docker_image = krisrs1128/lakes:071203
+docker_image = krisrs1128/lakes:071204
 log = landsat-$(Process).log
 error = landsat-$(Process).err
 output = landsat-$(Process).out
@@ -11,6 +11,8 @@ request_cpus = 1
 request_gpus = 1
 +GPUJobLength = "short"
 +WantGPULab = true
++wantFlocking = true
+requirements = (CUDADriverVersion >= 10.2)
 request_memory = 500MB
 request_disk = 6GB
 
