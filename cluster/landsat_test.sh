@@ -1,5 +1,6 @@
 mkdir results data
 
+export LD_LIBRARY_PATH=$PATH:/srv/conda/lib/
 mv le7-2015-small.tar.gz data/
 tar -zxvf data/le7-small.tar.gz
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz

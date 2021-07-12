@@ -1,2 +1,2 @@
-libstdc++6
 python3-opencv
+vim
