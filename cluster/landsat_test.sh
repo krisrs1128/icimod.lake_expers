@@ -3,10 +3,10 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ksankaran/miniconda3/envs/lakes/li
 eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
-# unzip treansferred data
+# unzip transferred data
 mkdir results data
-mv le7-2015-small.tar.gz data/
-tar -zxvf data/le7-2015-small.tar.gz
+tar -zxvf le7-2015-small.tar.gz
+mv le7-2015 data/
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 
 # start training
