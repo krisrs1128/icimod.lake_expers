@@ -1,12 +1,19 @@
 universe = docker
-docker_image = krisrs1128/lakes:071001
-log = $HOME/logs/landsat-$(Process).log # assumes a "logs" directory in $HOME
-error = $HOME/logs/landsat-$(Process).err
-output = $HOME/logs/landsat-$(Process).out
+docker_image = krisrs1128/lakes:071305
+log = landsat-$(Process).log
+error = landsat-$(Process).err
+output = landsat-$(Process).out
 executable = landsat_test.sh
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
-transfer_input_files = https://glaciersblob.blob.core.windows.net/lakes/le7-2015-small.tar.gz,https://glaciersblob.blob.core.windows.net/lakes/MS_DeepLab_resnet_trained_VOC.pth
+transfer_input_files = https://glaciersblob.blob.core.windows.net/lakes/le7-2015-small.tar.gz,https://glaciersblob.blob.core.windows.net/lakes/MS_DeepLab_resnet_trained_VOC.pth,/home/ksankaran/glaciers/icimod.glacial-lakes-baselines.tar.gz
 request_cpus = 1
+request_gpus = 1
++GPUJobLength = "short"
++WantGPULab = true
++wantFlocking = true
+requirements = (CUDADriverVersion >= 10.2)
 request_memory = 500MB
 request_disk = 6GB
+
+queue
