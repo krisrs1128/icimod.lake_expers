@@ -6,7 +6,7 @@ conda activate /home/ksankaran/miniconda3/envs/lakes
 # unzip treansferred data
 mkdir results data
 mv le7-2015-small.tar.gz data/
-tar -zxvf data/le7-small.tar.gz
+tar -zxvf data/le7-2015-small.tar.gz
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 
 # start training
