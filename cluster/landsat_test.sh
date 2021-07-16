@@ -10,7 +10,7 @@ mv le7-2015 data/
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 
 # start training
-python icimod.glacial-lakes-baselines/train.py --delse_pth MS_DeepLab_resnet_trained_VOC.pth --data_dir data/ --save_dir results/save --backup_dir results/backup
+python icimod.glacial-lakes-baselines/train.py --delse_pth MS_DeepLab_resnet_trained_VOC.pth --data_dir data/ --save_dir results/save --backup_dir results/backup --batch_size 4
 
 +tar -zcvf results.tar.gz results/
 +mv results.tar.gz $_CONDOR_SCRATCH_DIR/
