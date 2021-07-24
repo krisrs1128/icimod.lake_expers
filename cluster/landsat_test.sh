@@ -19,6 +19,7 @@ rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
 python icimod.glacial-lakes-baselines/train.py \
+  --experiment_name landsat7-unet
   --loss wbce \ # change to delse for delse model
   --data_dir data/ \
   --dataset landsat \ # change to "bing" for bing data
