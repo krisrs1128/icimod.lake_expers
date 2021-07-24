@@ -1,5 +1,6 @@
 # setup environment
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ksankaran/miniconda3/envs/lakes/lib
+export MPLCONFIGDIR=$(pwd)
 eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 

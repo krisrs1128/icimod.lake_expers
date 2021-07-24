@@ -1,5 +1,6 @@
 # setup environment
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ksankaran/miniconda3/envs/lakes/lib
+export MPLCONFIGDIR=$(pwd)
 eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
@@ -20,9 +21,9 @@ rm icimod.glacial-lakes-baselines.tar.gz
 # start training
 python icimod.glacial-lakes-baselines/train.py \
   --experiment_name landsat7-unet
-  --loss wbce \ # change to delse for delse model
+  --loss wbce \
   --data_dir data/ \
-  --dataset landsat \ # change to "bing" for bing data
+  --dataset landsat \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth \
   --save_dir results/save \
   --backup_dir results/backup \
