@@ -27,7 +27,8 @@ python icimod.glacial-lakes-baselines/inference.py \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/landsat \
+  --inference_dir results/landsat_val-unet \
+  --save_dir results/landsat_val-unet \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
