@@ -8,6 +8,7 @@ mkdir results data
 cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
 cp /staging/ksankaran/lakes/le7-2015.tar.gz data/
 cp /staging/ksankaran/lakes/unet-landsat7-2.tar.gz data/
+cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
 
 # unzip data and models
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
@@ -20,11 +21,12 @@ python icimod.glacial-lakes-baselines/inference.py \
   --meta_dir data/le7-2015/splits/val/meta \
   --save_dir results/landsat_val-unet/ \
   --model_pth unet-landsat7-2/bing_test_best.pth \
-  --inference_dir results/landsat_val-unet/
+  --inference_dir results/landsat_val-unet/ \
+  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/inference.py \
   --inference_dir results/landsat
   --vector_label data/GL_3basins_2015.shp
 
-rm icimod.glacial-lakes-baselines.tar.gz
+rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
 tar -zcvf results.tar.gz results/
