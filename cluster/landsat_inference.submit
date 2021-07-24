@@ -1,5 +1,5 @@
 universe = docker
-docker_image = krisrs1128/lakes:071305
+docker_image = krisrs1128/lakes:072402
 log = landsat-inference-$(Process).log
 error = landsat-inference-$(Process).err
 output = landsat-inference-$(Process).out
