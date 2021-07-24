@@ -4,8 +4,8 @@ eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
 # copy data over from staging
-cp /staging/ksankaran/le7-2015.tar.gz .
-cp /staging/ksankaran/unet-landsat7-2.tar.gz .
+cp /staging/ksankaran/lakes/le7-2015.tar.gz .
+cp /staging/ksankaran/lakes/unet-landsat7-2.tar.gz .
 
 # unzip data and models
 mkdir results data
