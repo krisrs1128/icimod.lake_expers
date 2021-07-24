@@ -4,27 +4,27 @@ eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
 # copy data over from staging
-cp /staging/ksankaran/lakes/le7-2015.tar.gz .
-cp /staging/ksankaran/lakes/unet-landsat7-2.tar.gz .
+mkdir results data
+cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
+cp /staging/ksankaran/lakes/le7-2015.tar.gz data/
+cp /staging/ksankaran/lakes/unet-landsat7-2.tar.gz data/
 
 # unzip data and models
-mkdir results data
-tar -zxvf le7-2015.tar.gz
-tar -zxvf unet-landsat7-2.tar.gz
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
-mv le7-2015 data/
-
-# clear up zipped files
-rm le7-2015.tar.gz
-rm unet-landsat7-2.tar.gz
-rm icimod.glacial-lakes-baselines.tar.gz
+tar -zxvf data/le7-2015.tar.gz
+tar -zxvf data/unet-landsat7-2.tar.gz
 
 # perform inference
 python icimod.glacial-lakes-baselines/inference.py \
   --x_dir data/le7-2015/splits/val/images \
   --meta_dir data/le7-2015/splits/val/meta \
-  --save_dir results/landsat-val \
+  --save_dir results/landsat_val-unet/ \
   --model_pth unet-landsat7-2/bing_test_best.pth \
-  --inference_dir results/landsat-val/
+  --inference_dir results/landsat_val-unet/
 
+python icimod.glacial-lakes-baselines/inference.py \
+  --inference_dir results/landsat
+  --vector_label data/GL_3basins_2015.shp
+
+rm icimod.glacial-lakes-baselines.tar.gz
 tar -zcvf results.tar.gz results/
