@@ -21,7 +21,7 @@ rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
 python icimod.glacial-lakes-baselines/train.py \
-  --experiment_name landsat7-unet
+  --experiment_name landsat7-unet \
   --loss wbce \
   --data_dir data/ \
   --dataset landsat \
