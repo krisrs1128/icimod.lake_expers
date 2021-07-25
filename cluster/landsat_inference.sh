@@ -36,4 +36,4 @@ python icimod.glacial-lakes-baselines/evaluate.py \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf results.tar.gz results/
+tar -zcvf results_inference.tar.gz results/
