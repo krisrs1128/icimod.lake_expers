@@ -19,8 +19,10 @@ tar -zxvf data/unet-landsat7-2.tar.gz
 
 # perform inference
 python icimod.glacial-lakes-baselines/inference.py \
-  --x_dir data/le7-2015/splits/val/images \
-  --meta_dir data/le7-2015/splits/val/meta \
+  --data_dir data/le7-2015/splits/val \
+  --x_dir images \
+  --meta_dir meta \
+  --stats_fn statistics.csv \
   --save_dir results/landsat_val-unet/ \
   --model_pth unet-landsat7-2/bing_test_best.pth \
   --inference_dir results/landsat_val-unet/ \
