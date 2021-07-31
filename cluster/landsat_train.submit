@@ -14,6 +14,6 @@ request_gpus = 1
 +wantFlocking = true
 requirements = (CUDACapability > 7)
 request_memory = 12GB
-request_disk = 6GB
+request_disk = 50GB
 
 queue
