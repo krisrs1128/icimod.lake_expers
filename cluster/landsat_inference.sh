@@ -25,7 +25,6 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --save_dir results/landsat_val-unet/ \
   --model_pth data/landsat7-unet_best.pth \
   --inference_dir results/landsat_val-unet/ \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
