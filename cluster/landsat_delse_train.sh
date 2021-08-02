@@ -31,6 +31,7 @@ python icimod.glacial-lakes-baselines/train.py \
   --backup_dir results/backup \
   --log_dir results/logs \
   --batch_size 8 \
+  --lr 3e-4 \
   --n_epochs 20 \
   --subset_size 40
 
