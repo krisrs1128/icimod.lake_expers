@@ -1,19 +1,18 @@
 universe = docker
 docker_image = krisrs1128/lakes:072402
-log = landsat-$(Process).log
-error = landsat-$(Process).err
-output = landsat-$(Process).out
-executable = landsat_train.sh
+log = landsat-inference-$(Cluster).log
+error = inference-$(Cluster)(.err
+output = inference-$(Cluster).out
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 transfer_input_files = /home/ksankaran/glaciers/icimod.glacial-lakes-baselines.tar.gz
 request_cpus = 1
 request_gpus = 1
-+GPUJobLength = "medium"
++GPUJobLength = "short"
 +WantGPULab = true
 +wantFlocking = true
-requirements = (CUDACapability > 7)
+requirements = (CUDACapability > 6)
 request_memory = 12GB
-request_disk = 50GB
+request_disk = 60GB
 
 queue
