@@ -32,8 +32,8 @@ python icimod.glacial-lakes-baselines/train.py \
   --log_dir results/logs \
   --batch_size 8 \
   --lr 3e-4 \
-  --n_epochs 20 \
-  --subset_size 40
+  --delse_pretrain 8000 \
+  --n_epochs 30
 
 rm MS_DeepLab_resnet_trained_VOC.pth
 tar -zcvf landsat_delse_trained.tar.gz results/
