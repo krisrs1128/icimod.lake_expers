@@ -22,18 +22,18 @@ cd ..
 # perform inference
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
-  --data_dir data/le7-2015/splits/val \
+  --data_dir data/le7-2015/splits/train \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth data/landsat7-delse_best.pth \
-  --inference_dir results/landsat_val-delse/ \
+  --inference_dir results/landsat_train-delse/ \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/landsat_val-delse \
-  --save_dir results/landsat_val-delse \
+  --inference_dir results/landsat_train-delse \
+  --save_dir results/landsat_train-delse \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf landsat_delse_inference.tar.gz results/
+tar -zcvf landsat_delse_inference_train_mem.tar.gz results/

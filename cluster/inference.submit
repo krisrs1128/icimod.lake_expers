@@ -11,7 +11,7 @@ request_gpus = 1
 +GPUJobLength = "short"
 +WantGPULab = true
 +wantFlocking = true
-requirements = (CUDACapability > 6)
+requirements = (CUDAGlobalMemoryMb > 4000)
 request_memory = 12GB
 request_disk = 60GB
 
