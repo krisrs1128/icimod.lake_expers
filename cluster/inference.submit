@@ -1,7 +1,7 @@
 universe = docker
 docker_image = krisrs1128/lakes:072402
-log = landsat-inference-$(Cluster).log
-error = inference-$(Cluster)(.err
+log = inference-$(Cluster).log
+error = inference-$(Cluster).err
 output = inference-$(Cluster).out
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
