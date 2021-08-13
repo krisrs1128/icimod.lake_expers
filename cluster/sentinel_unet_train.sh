@@ -32,4 +32,4 @@ python icimod.glacial-lakes-baselines/train.py \
   --n_epochs 20
 
 rm MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf landsat_unet_trained.tar.gz results/
+tar -zcvf sentinel_unet_trained.tar.gz results/
