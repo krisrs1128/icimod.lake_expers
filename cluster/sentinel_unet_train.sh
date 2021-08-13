@@ -12,7 +12,7 @@ cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
 # unzip transferred data
 mkdir results data
 tar -zxvf sentinel-2015.tar.gz
-mv sentinel-2015 data/
+mv sentinel data/
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 
 # clear unzipped data
