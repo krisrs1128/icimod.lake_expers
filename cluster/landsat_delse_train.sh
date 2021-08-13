@@ -21,11 +21,11 @@ rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
 python icimod.glacial-lakes-baselines/train.py \
-  --experiment_name landsat7-delse \
+  --experiment_name sentinel-delse \
   --loss delse \
   --model delse \
   --data_dir data/ \
-  --dataset landsat \
+  --dataset sentinel \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth \
   --save_dir results/save \
   --backup_dir results/backup \
