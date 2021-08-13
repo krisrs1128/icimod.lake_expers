@@ -6,7 +6,7 @@ eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
 # copy data over from staging
-cp /staging/ksankaran/lakes/sentinel-2015.tar.gz . # change to bing_processed_data.tar.gz for bing
+cp /staging/ksankaran/lakes/sentinel-2015.tar.gz .
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
 
 # unzip transferred data
