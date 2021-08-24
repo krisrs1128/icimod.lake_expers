@@ -15,8 +15,8 @@ python icimod.glacial-lakes-baselines/inference.py \
   --inference_dir results/bing_test-unet/
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing_test-unet \
-  --save_dir results/bing_test-unet \
+  --inference_dir /datadrive/results/inference/bing_test-unet \
+  --save_dir /datadrive/results/inference/bing_test-unet \
   --vector_label data/GL_3basins_2015.shp
 
 # inference and evaluation overall
@@ -26,7 +26,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/bing-unet_best.pth \
-  --inference_dir results/bing-unet/
+  --inference_dir /datadrive/results/inference/bing-unet/
 
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir results/bing-unet \

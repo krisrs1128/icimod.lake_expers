@@ -5,38 +5,34 @@ export SKIMAGE_DATADIR=$(pwd)
 eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
-# copy data over from staging
-mkdir results data
-cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
-cp /staging/ksankaran/lakes/bing_glaciers_processed_small.tar.gz data/
-#cp /staging/ksankaran/lakes/data/
-cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
-cp /staging/ksankaran/lakes/trained_models/bing-delse_best.pth data/
-
-# unzip data and models
-tar -zxvf icimod.glacial-lakes-baselines.tar.gz
-cd data
-tar -zxvf bing_glaciers_processed_small.tar.gz
-mv bing_glaciers_processed_small.tar.gz bing
-cd ..
-
-# perform inference
+# perform inference and evaluation on test set
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
-  --data_dir data/bing/splits/val \
+  --data_dir /datadrive/glaciers/bing_glaciers/processed/data/bing/splits/test \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/bing-delse_best.pth \
-  --inference_dir results/bing_val-delse/ \
-  --input_channels 3 \
-  --dataset bing \
+  --model_pth /datadrive/results/backup/bing-delse.pth \
+  --inference_dir results/bing_test-delse/ \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing_val-delse \
-  --save_dir results/bing_val-delse \
+  --inference_dir /datadrive/results/inference/bing_test-delse \
+  --save_dir /datadrive/results/inference/bing_test-delse \
   --vector_label data/GL_3basins_2015.shp
 
-rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf bing_delse_inference.tar.gz results/
+# inference and evaluation overall
+python icimod.glacial-lakes-baselines/inference.py \
+  --model delse \
+  --data_dir /datadrive/glaciers/bing_glaciers/processed/data/bing/ \
+  --x_dir images \
+  --meta_dir meta \
+  --stats_fn statistics.csv \
+  --model_pth /datadrive/results/backup/bing-delse.pth \
+  --inference_dir /datadrive/results/inference/bing-delse/ \
+  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+
+python icimod.glacial-lakes-baselines/evaluate.py \
+  --inference_dir results/bing-delse \
+  --save_dir results/bing-delse \
+  --vector_label data/GL_3basins_2015.shp

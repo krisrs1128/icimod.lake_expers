@@ -5,38 +5,22 @@ export SKIMAGE_DATADIR=$(pwd)
 eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
-# copy data over from staging
-mkdir results data
-cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
-cp /staging/ksankaran/lakes/sentinel-2015.tar.gz data/
-cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
-cp /staging/wtian24/lakes/trained_models/sentinel-delse_best.pth data/
-
-# unzip data and models
-tar -zxvf icimod.glacial-lakes-baselines.tar.gz
-cd data
-tar -zxvf sentinel.tar.gz
-cd ..
-
 # inference and evaluation on 2015 data
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
-  --data_dir data/sentinel/splits/test \
+  --data_dir /datadrive/snake/lakes/sentinel/splits/test \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/sentinel-delse_best.pth \
-  --inference_dir results/sentinel_test-delse/ \
+  --model_pth /datadrive/results/backup/sentinel-delse_best.pth \
+  --inference_dir /datadrive/results/inference/sentinel_test-delse/ \
   --dataset sentinel \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel_test-delse \
-  --save_dir results/sentinel_test-delse \
+  --inference_dir /datadrive/results/inference/sentinel_test-delse/ \
+  --save_dir /datadrive/results/inference/results/sentinel_test-delse \
   --vector_label data/GL_3basins_2015.shp
-
-rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf sentinel_delse_inference.tar.gz results/
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \
@@ -51,9 +35,6 @@ python icimod.glacial-lakes-baselines/inference.py \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel-delse \
-  --save_dir results/sentinel-delse \
+  --inference_dir /datadrive/results/inference/sentinel-delse \
+  --save_dir /datadrive/results/inference/sentinel-delse \
   --vector_label data/GL_3basins_2015.shp
-
-rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf sentinel_delse_inference.tar.gz results/
