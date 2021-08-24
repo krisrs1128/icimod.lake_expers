@@ -14,25 +14,38 @@ cp /staging/wtian24/lakes/trained_models/sentinel-unet_best.pth data/
 
 # unzip data and models
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
-cd data
-tar -zxvf sentinel-2015.tar.gz
+cd dat
+tar -zxvf sentinel.tar.gz
 cd ..
 
-# perform inference
+# inference and evaluation on 2015 data
 python icimod.glacial-lakes-baselines/inference.py \
-  --data_dir data/sentinel/splits/val \
+  --data_dir data/sentinel/splits/test \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth data/sentinel-unet_best.pth \
   --inference_dir results/sentinel_val-unet/ \
-  --dataset sentinel \
-  --input_channels 3\
-  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+  --dataset sentinel
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel_val-unet \
-  --save_dir results/sentinel_val-unet \
+  --inference_dir results/sentinel_test-unet \
+  --save_dir results/sentinel_test-unet \
+  --vector_label data/GL_3basins_2015.shp
+
+# inference and evaluation overall
+python icimod.glacial-lakes-baselines/inference.py \
+  --data_dir data/sentinel/ \
+  --x_dir images \
+  --meta_dir meta \
+  --stats_fn statistics.csv \
+  --model_pth data/sentinel-unet_best.pth \
+  --inference_dir results/sentinel-unet/ \
+  --dataset sentinel
+
+python icimod.glacial-lakes-baselines/evaluate.py \
+  --inference_dir results/sentinel-unet \
+  --save_dir results/sentinel-unet \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
