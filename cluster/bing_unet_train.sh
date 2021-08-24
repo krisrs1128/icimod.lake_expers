@@ -29,8 +29,7 @@ CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
   --backup_dir results/backup \
   --log_dir results/logs \
   --batch_size 8 \
-  --n_epochs 20 \
-  --subset_size 40
+  --n_epochs 20
 
 rm MS_DeepLab_resnet_trained_VOC.pth
 tar -zcvf bing_unet_trained.tar.gz results/

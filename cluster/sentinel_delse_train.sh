@@ -6,17 +6,17 @@ eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
 # copy data over from staging
-cp /staging/ksankaran/lakes/sentinel-2015.tar.gz .
+cp /staging/ksankaran/lakes/sentinel.tar.gz .
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
 
 # unzip transferred data
 mkdir results data
-tar -zxvf sentinel-2015.tar.gz
+tar -zxvf sentinel.tar.gz
 mv sentinel data/
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 
 # clear unzipped data
-rm sentinel-2015.tar.gz
+rm sentinel.tar.gz
 rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
