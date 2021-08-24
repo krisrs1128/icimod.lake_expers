@@ -18,7 +18,7 @@ python icimod.glacial-lakes-baselines/inference.py \
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/bing_test-unet \
   --save_dir /datadrive/results/inference/bing_test-unet \
-  --vector_label data/GL_3basins_2015.shp
+  --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \
@@ -33,4 +33,4 @@ python icimod.glacial-lakes-baselines/inference.py \
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir results/bing-unet \
   --save_dir results/bing-unet \
-  --vector_label data/GL_3basins_2015.shp
+  --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp

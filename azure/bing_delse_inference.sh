@@ -20,7 +20,7 @@ python icimod.glacial-lakes-baselines/inference.py \
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/bing_test-delse \
   --save_dir /datadrive/results/inference/bing_test-delse \
-  --vector_label data/GL_3basins_2015.shp
+  --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \
@@ -35,6 +35,6 @@ python icimod.glacial-lakes-baselines/inference.py \
   --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing-delse \
-  --save_dir results/bing-delse \
-  --vector_label data/GL_3basins_2015.shp
+  --inference_dir /datadrive/results/inference/bing-delse \
+  --save_dir /datadrive/results/inference/bing-delse \
+  --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp

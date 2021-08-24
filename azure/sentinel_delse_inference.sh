@@ -21,7 +21,7 @@ python icimod.glacial-lakes-baselines/inference.py \
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/sentinel_test-delse/ \
   --save_dir /datadrive/results/inference/results/sentinel_test-delse \
-  --vector_label data/GL_3basins_2015.shp
+  --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \
@@ -30,7 +30,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/sentinel-delse_best.pth \
+  --model_pth /datadrive/results/backup/sentinel-delse_best.pth \
   --inference_dir results/sentinel-delse/ \
   --divergence \
   --dataset sentinel \
@@ -39,4 +39,4 @@ python icimod.glacial-lakes-baselines/inference.py \
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/sentinel-delse \
   --save_dir /datadrive/results/inference/sentinel-delse \
-  --vector_label data/GL_3basins_2015.shp
+  --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
