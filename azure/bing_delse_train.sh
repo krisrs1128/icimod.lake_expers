@@ -21,14 +21,16 @@ rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
 CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
-  --experiment_name bing-unet \
+  --experiment_name bing-delse \
+  --loss delse \
+  --model delse \
   --data_dir data/ \
   --dataset bing \
+  --delse_pth MS_DeepLab_resnet_trained_VOC.pth \
   --save_dir results/save \
   --backup_dir results/backup \
   --log_dir results/logs \
   --batch_size 8 \
-  --divergence \
   --n_epochs 20
 
 rm MS_DeepLab_resnet_trained_VOC.pth
