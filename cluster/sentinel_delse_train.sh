@@ -33,6 +33,7 @@ python icimod.glacial-lakes-baselines/train.py \
   --batch_size 8 \
   --optimizer sgd \
   --lr 3e-4 \
+  --divergence \
   --delse_pretrain 3000 \
   --n_epochs 30
 

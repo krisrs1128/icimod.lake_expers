@@ -29,6 +29,7 @@ python icimod.glacial-lakes-baselines/train.py \
   --backup_dir results/backup \
   --log_dir results/logs \
   --batch_size 8 \
+  --divergence \
   --n_epochs 20
 
 rm MS_DeepLab_resnet_trained_VOC.pth
