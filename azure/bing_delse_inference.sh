@@ -14,7 +14,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/bing-delse.pth \
   --inference_dir results/bing_test-delse/ \
-  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+  --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/bing_test-delse \
@@ -30,7 +30,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/bing-delse.pth \
   --inference_dir /datadrive/results/inference/bing-delse/ \
-  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+  --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir results/bing-delse \

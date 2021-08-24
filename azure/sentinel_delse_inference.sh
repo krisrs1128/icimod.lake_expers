@@ -15,7 +15,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --model_pth /datadrive/results/backup/sentinel-delse_best.pth \
   --inference_dir /datadrive/results/inference/sentinel_test-delse/ \
   --dataset sentinel \
-  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+  --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/sentinel_test-delse/ \
@@ -32,7 +32,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --model_pth data/sentinel-delse_best.pth \
   --inference_dir results/sentinel-delse/ \
   --dataset sentinel \
-  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+  --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/sentinel-delse \
