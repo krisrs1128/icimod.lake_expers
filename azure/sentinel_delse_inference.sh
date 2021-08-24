@@ -20,7 +20,7 @@ python icimod.glacial-lakes-baselines/inference.py \
 
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/sentinel_test-delse/ \
-  --save_dir /datadrive/results/inference/results/sentinel_test-delse \
+  --save_dir /datadrive/results/inference/sentinel_test-delse \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
 
 # inference and evaluation overall
