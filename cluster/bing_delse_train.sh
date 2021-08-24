@@ -6,17 +6,17 @@ eval "$(conda shell.bash hook)"
 conda activate /home/ksankaran/miniconda3/envs/lakes
 
 # copy data over from staging
-cp /staging/ksankaran/lakes/bing_glaciers_processed.tar.gz .
+cp /staging/ksankaran/lakes/bing_processed_data.tar.gz .
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
 
 # unzip transferred data
 mkdir results data
-tar -zxvf bing_glaciers_processed.tar.gz
+tar -zxvf bing_processed_data.tar.gz
 mv bing/ data/
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 
 # clear unzipped data
-rm bing_glaciers_processed.tar.gz
+rm bing_processed_data.tar.gz
 rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
@@ -35,4 +35,4 @@ CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
   --n_epochs 20
 
 rm MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf bing_unet_trained.tar.gz results/
+tar -zcvf bing_delse_trained.tar.gz results/
