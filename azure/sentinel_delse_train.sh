@@ -26,7 +26,7 @@ python icimod.glacial-lakes-baselines/train.py \
   --model delse \
   --data_dir data/ \
   --dataset sentinel \
-  --delse_pth MS_DeepLab_resnet_trained_VOC.pth \
+  --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth \
   --save_dir results/save \
   --backup_dir results/backup \
   --log_dir results/logs \
