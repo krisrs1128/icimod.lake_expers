@@ -31,8 +31,9 @@ python icimod.glacial-lakes-baselines/train.py \
   --backup_dir results/backup \
   --log_dir results/logs \
   --batch_size 8 \
+  --optimizer sgd \
   --lr 3e-4 \
-  --delse_pretrain 8000 \
+  --delse_pretrain 3000 \
   --n_epochs 30
 
 rm MS_DeepLab_resnet_trained_VOC.pth

@@ -9,7 +9,6 @@ conda activate /home/ksankaran/miniconda3/envs/lakes
 mkdir results data
 cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
 cp /staging/ksankaran/lakes/bing_glaciers_processed_small.tar.gz data/
-#cp /staging/ksankaran/lakes/data/
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
 cp /staging/wtian24/lakes/trained_models/bing-unet_best.pth data/
 
