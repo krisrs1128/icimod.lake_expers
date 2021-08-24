@@ -3,7 +3,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ksankaran/miniconda3/envs/lakes/li
 export MPLCONFIGDIR=$(pwd)
 export SKIMAGE_DATADIR=$(pwd)
 eval "$(conda shell.bash hook)"
-conda activate /home/ksankaran/miniconda3/envs/lakes
+conda activate /anaconda/envs/lakes
 
 # perform inference and evaluation on test set
 python icimod.glacial-lakes-baselines/inference.py \
