@@ -15,25 +15,44 @@ cp /staging/wtian24/lakes/trained_models/sentinel-delse_best.pth data/
 # unzip data and models
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 cd data
-tar -zxvf sentinel-2015.tar.gz
+tar -zxvf sentinel.tar.gz
 cd ..
 
-# perform inference
+# inference and evaluation on 2015 data
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
-  --data_dir data/sentinel/splits/val \
+  --data_dir data/sentinel/splits/test \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth data/sentinel-delse_best.pth \
-  --inference_dir results/sentinel_val-delse/ \
-  --input_channels 3 \
+  --inference_dir results/sentinel_test-delse/ \
   --dataset sentinel \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel_val-delse \
-  --save_dir results/sentinel_val-delse \
+  --inference_dir results/sentinel_test-delse \
+  --save_dir results/sentinel_test-delse \
+  --vector_label data/GL_3basins_2015.shp
+
+rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
+tar -zcvf sentinel_delse_inference.tar.gz results/
+
+# inference and evaluation overall
+python icimod.glacial-lakes-baselines/inference.py \
+  --model delse \
+  --data_dir data/sentinel/ \
+  --x_dir images \
+  --meta_dir meta \
+  --stats_fn statistics.csv \
+  --model_pth data/sentinel-delse_best.pth \
+  --inference_dir results/sentinel-delse/ \
+  --dataset sentinel \
+  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+
+python icimod.glacial-lakes-baselines/evaluate.py \
+  --inference_dir results/sentinel-delse \
+  --save_dir results/sentinel-delse \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
