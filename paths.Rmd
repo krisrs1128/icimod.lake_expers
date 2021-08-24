@@ -1,0 +1,45 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(sf)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+```
+
+```{r}
+paths <- read_csv("files.txt", col_names = FALSE) %>%
+  rename(path = X1) %>%
+  mutate(
+    file = basename(path),
+    link = str_c("https://glaciersblob.blob.core.windows.net/lakes/thumbnails/sentinel/", str_replace(file, "tif", "png")),
+    GL_ID = str_split(file, "_", simplify=TRUE)[, 1],
+    date = str_extract(path, "_20[0-9|-]+"),
+    date = str_replace(date, "_", ""),
+    year = as.integer(str_split(date, "-", simplify=TRUE)[, 1]),
+    month = as.integer(str_split(date, "-", simplify=TRUE)[, 2]),
+    day = as.integer(str_split(date, "-", simplify=TRUE)[, 3]),
+    )
+```
+
+```{r}
+metadata <- read_sf("GL_3basins_2015.shp") %>%
+  select(GL_ID, Area, Latitude, Longitude, Basin, Sub_Basin)
+```
+
+```{r}
+paths <- paths %>%
+  left_join(metadata) %>%
+  arrange(GL_ID, year, month) %>%
+  select(GL_ID, link, year, month, day, Area, Latitude, Longitude, Basin, Sub_Basin)
+```
+
+```{r}
+paths 
+write_csv(paths, "links.csv")
+```
+
