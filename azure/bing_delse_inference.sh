@@ -8,7 +8,7 @@ conda activate /anaconda/envs/lakes
 # perform inference and evaluation on test set
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
-  --data_dir /datadrive/glaciers/bing_glaciers/processed/data/bing/splits/test \
+  --data_dir /datadrive/glaciers/bing_glaciers/processed/bing/splits/test \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
@@ -25,7 +25,7 @@ python icimod.glacial-lakes-baselines/evaluate.py \
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
-  --data_dir /datadrive/glaciers/bing_glaciers/processed/data/bing/ \
+  --data_dir /datadrive/glaciers/bing_glaciers/processed/bing/ \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
