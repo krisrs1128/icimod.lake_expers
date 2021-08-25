@@ -12,7 +12,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/sentinel-unet_best.pth \
-  --inference_dir /datadrive/results/inference/sentinel_test-delse/ \
+  --inference_dir /datadrive/results/inference/sentinel_test-unet/ \
   --divergence \
   --dataset sentinel
 
@@ -23,12 +23,12 @@ python icimod.glacial-lakes-baselines/evaluate.py \
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \
-  --data_dir data/sentinel/ \
+  --data_dir /datadrive/snake/lakes/sentinel/ \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/sentinel-unet.pth \
-  --inference_dir results/sentinel-unet/ \
+  --model_pth /datadrive/results/backup/sentinel-unet_best.pth \
+  --inference_dir /datadrive/results/inference/sentinel-unet/ \
   --divergence \
   --dataset sentinel
 
