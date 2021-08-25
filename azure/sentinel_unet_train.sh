@@ -8,7 +8,7 @@ conda activate /anaconda/envs/lakes
 # start training
 python icimod.glacial-lakes-baselines/train.py \
   --experiment_name sentinel-unet \
-  --data_dir /datadrive/snake/lakes/sentinel/ \
+  --data_dir /datadrive/snake/lakes/ \
   --dataset sentinel \
   --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth \
   --save_dir /datadrive/results/save \
