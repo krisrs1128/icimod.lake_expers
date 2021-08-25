@@ -13,7 +13,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/bing-unet_best.pth \
   --divergence \
-  --inference_dir /datadrive/results/inference/bing-unet/
+  --inference_dir /datadrive/results/inference/bing_test-unet/
 
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/bing_test-unet \
