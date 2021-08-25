@@ -20,7 +20,7 @@ rm sentinel.tar.gz
 rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
-python icimod.glacial-lakes-baselines/train.py \
+CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
   --experiment_name sentinel-delse \
   --loss delse \
   --model delse \

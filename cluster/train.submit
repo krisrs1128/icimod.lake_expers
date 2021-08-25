@@ -13,6 +13,6 @@ request_gpus = 1
 +wantFlocking = true
 requirements = (CUDACapability > 6) && (Target.HasCHTCStaging == true)
 request_memory = 12GB
-request_disk = 75GB
+request_disk = 100GB
 
 queue
