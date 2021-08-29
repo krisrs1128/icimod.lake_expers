@@ -1,0 +1,20 @@
+# setup environment
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ksankaran/miniconda3/envs/lakes/lib
+export MPLCONFIGDIR=$(pwd)
+export SKIMAGE_DATADIR=$(pwd)
+eval "$(conda shell.bash hook)"
+conda activate /anaconda/envs/lakes
+
+# inference and evaluation on 2015 data
+mkdir -p /datadrive/results/inference/sentinel_test-snake/
+python icimod.glacial-lakes-baselines/inference_snake.py \
+  --input_dir /datadrive/snake/lakes/sentinel/splits/test/images/ \
+  --output_dir /datadrive/results/inference/sentinel_test-snake/ \
+  --overwrite \
+  --image_source sentinel
+
+python icimod.glacial-lakes-baselines/evaluate.py \
+  --inference_dir /datadrive/results/inference/sentinel_test-snake/ \
+  --save_dir /datadrive/results/inference/sentinel_test-snake/ \
+  --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp \
+  --dataset sentinel
