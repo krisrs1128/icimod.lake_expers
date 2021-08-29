@@ -18,3 +18,17 @@ python icimod.glacial-lakes-baselines/evaluate.py \
   --save_dir /datadrive/results/inference/sentinel_test-snake/ \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp \
   --dataset sentinel
+
+  # inference and evaluation on all data
+  mkdir -p /datadrive/results/inference/sentinel-snake/
+  python icimod.glacial-lakes-baselines/inference_snake.py \
+    --input_dir /datadrive/snake/lakes/sentinel//images/ \
+    --output_dir /datadrive/results/inference/sentinel-snake/ \
+    --overwrite \
+    --image_source sentinel
+
+  python icimod.glacial-lakes-baselines/evaluate.py \
+    --inference_dir /datadrive/results/inference/sentinel-snake/ \
+    --save_dir /datadrive/results/inference/sentinel-snake/ \
+    --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp \
+    --dataset sentinel
