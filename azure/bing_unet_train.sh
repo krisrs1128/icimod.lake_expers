@@ -16,3 +16,5 @@ CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
   --batch_size 8 \
   --divergence \
   --n_epochs 20
+
+# new line
