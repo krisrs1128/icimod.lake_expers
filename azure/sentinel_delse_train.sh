@@ -3,21 +3,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ksankaran/miniconda3/envs/lakes/li
 export MPLCONFIGDIR=$(pwd)
 export SKIMAGE_DATADIR=$(pwd)
 eval "$(conda shell.bash hook)"
-conda activate /home/ksankaran/miniconda3/envs/lakes
-
-# copy data over from staging
-cp /staging/ksankaran/lakes/sentinel.tar.gz .
-cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
-
-# unzip transferred data
-mkdir results data
-tar -zxvf sentinel.tar.gz
-mv sentinel data/
-tar -zxvf icimod.glacial-lakes-baselines.tar.gz
-
-# clear unzipped data
-rm sentinel.tar.gz
-rm icimod.glacial-lakes-baselines.tar.gz
+conda activate /anaconda/envs/lakes
 
 # start training
 python icimod.glacial-lakes-baselines/train.py \
@@ -33,9 +19,6 @@ python icimod.glacial-lakes-baselines/train.py \
   --batch_size 8 \
   --optimizer sgd \
   --lr 3e-4 \
-  --divergence \
+  --chip_size 400 \
   --delse_pretrain 3000 \
   --n_epochs 30
-
-rm MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf sentinel_delse_trained_full.tar.gz results/

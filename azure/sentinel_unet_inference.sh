@@ -7,18 +7,17 @@ conda activate /anaconda/envs/lakes
 
 # inference and evaluation on 2015 data
 python icimod.glacial-lakes-baselines/inference.py \
-  --data_dir /datadrive/snake/lakes/sentinel/splits/test \
+  --data_dir /datadrive/snake/lakes/sentinel/splits/train \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/sentinel-unet_best.pth \
-  --inference_dir /datadrive/results/inference/sentinel_test-unet/ \
-  --divergence \
+  --inference_dir /datadrive/results/inference/sentinel_train-unet/ \
   --dataset sentinel
 
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/sentinel_test-unet/ \
-  --save_dir /datadrive/results/inference/results/sentinel_test-unet \
+  --save_dir /datadrive/results/inference/sentinel_test-unet/ \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp \
   --dataset sentinel
 
@@ -30,11 +29,10 @@ python icimod.glacial-lakes-baselines/inference.py \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/sentinel-unet_best.pth \
   --inference_dir /datadrive/results/inference/sentinel-unet/ \
-  --divergence \
   --dataset sentinel
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir /datadrive/results/inference/sentinel-unet \
-  --save_dir /datadrive/results/inference/sentinel-unet \
+  --inference_dir /datadrive/results/inference/sentinel-unet/ \
+  --save_dir /datadrive/results/inference/sentinel-unet/ \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp \
   --dataset sentinel

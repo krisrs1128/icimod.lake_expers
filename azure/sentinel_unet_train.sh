@@ -15,5 +15,7 @@ python icimod.glacial-lakes-baselines/train.py \
   --backup_dir /datadrive/results/backup \
   --log_dir /datadrive/results/logs \
   --batch_size 8 \
-  --divergence \
-  --n_epochs 20
+  --optimizer sgd \
+  --lr 5e-4 \
+  --chip_size 400 \
+  --n_epochs 50
