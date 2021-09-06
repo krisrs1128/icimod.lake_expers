@@ -30,12 +30,13 @@ CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
   --save_dir results/save \
   --backup_dir results/backup \
   --log_dir results/logs \
-  --batch_size 8 \
+  --batch_size 4 \
   --optimizer sgd \
   --lr 3e-4 \
-  --divergence \
+  --chip_size 400 \
   --delse_pretrain 3000 \
-  --n_epochs 30
+  --delse_iterations 2 \
+  --n_epochs 100
 
 rm MS_DeepLab_resnet_trained_VOC.pth
-tar -zcvf sentinel_delse_trained_full.tar.gz results/
+tar -zcvf sentinel_delse_trained.tar.gz results/
