@@ -18,4 +18,4 @@ python icimod.glacial-lakes-baselines/train.py \
   --optimizer sgd \
   --lr 5e-4 \
   --chip_size 400 \
-  --n_epochs 100
+  --n_epochs 150
