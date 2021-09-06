@@ -8,14 +8,15 @@ conda activate /anaconda/envs/lakes
 # inference and evaluation on 2015 data
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
-  --data_dir /datadrive/snake/lakes/sentinel/splits/test \
+  --data_dir /datadrive/snake/lakes/sentinel/splits/train \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/sentinel-delse_best.pth \
-  --inference_dir /datadrive/results/inference/sentinel_test-delse/ \
-  --divergence \
+  --inference_dir /datadrive/results/inference/sentinel_train-delse/ \
   --dataset sentinel \
+  --delse_iterations 2 \
+  --model delse \
   --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \

@@ -13,12 +13,10 @@ python icimod.glacial-lakes-baselines/train.py \
   --loss delse \
   --model delse \
   --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth \
-  --save_dir results/save \
-  --backup_dir results/backup \
-  --log_dir results/logs \
-  --batch_size 8 \
+  --batch_size 4 \
   --optimizer sgd \
   --lr 3e-4 \
   --chip_size 400 \
   --delse_pretrain 3000 \
+  --delse_iterations 2 \
   --n_epochs 100
