@@ -17,3 +17,9 @@ condor_submit inference.submit executable=bing_delse_inference.sh
 condor_submit inference.submit executable=sentinel_unet_inference.sh
 condor_submit inference.submit executable=sentinel_delse_inference.sh
 ```
+
+To evaluate different GPU resources, you can use commands like,
+
+```
+condor_status -compact -constraint 'TotalGpus > 0' -constraint 'CUDACapability > 6' -constraint 'CUDAGlobalMemoryMb > 8000'
+```
