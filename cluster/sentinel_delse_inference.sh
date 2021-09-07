@@ -8,9 +8,9 @@ conda activate /home/ksankaran/miniconda3/envs/lakes
 # copy data over from staging
 mkdir results data
 cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
-cp /staging/ksankaran/lakes/sentinel-2015.tar.gz data/
+cp /staging/ksankaran/lakes/sentinel.tar.gz data/
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
-cp /staging/wtian24/lakes/trained_models/sentinel-delse_best.pth data/
+cp /staging/$USER/lakes/trained_models/sentinel-delse_best.pth data/
 
 # unzip data and models
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
