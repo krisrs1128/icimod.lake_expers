@@ -3,7 +3,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ksankaran/miniconda3/envs/lakes/li
 export MPLCONFIGDIR=$(pwd)
 export SKIMAGE_DATADIR=$(pwd)
 eval "$(conda shell.bash hook)"
-conda activate /anaconda/envs/lakes
+conda activate /home/ksankaran/miniconda3/envs/lakes
 
 # copy data over from staging
 cp /staging/ksankaran/lakes/sentinel.tar.gz .
