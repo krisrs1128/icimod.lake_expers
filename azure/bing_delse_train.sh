@@ -6,15 +6,16 @@ conda activate /anaconda/envs/lakes
 
 # start training
 CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
-  --experiment_name bing-delse \
-  --data_dir /datadrive/glaciers/bing_glaciers/processed \
-  --dataset bing \
-  --model delse \
-  --loss delse \
-  --delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth \
-  --save_dir /datadrive/results/save \
-  --backup_dir /datadrive/results/backup \
-  --log_dir /datadrive/results/logs \
-  --batch_size 8 \
-  --divergence \
-  --n_epochs 20
+--experiment_name bing-delse \
+--data_dir /datadrive/glaciers/bing_glaciers/processed \
+--dataset bing \
+--loss delse \
+--model delse \
+--delse_pth /datadrive/snake/models/MS_DeepLab_resnet_trained_VOC.pth \
+--batch_size 4 \
+--optimizer sgd \
+--lr 3e-4 \
+--chip_size 400 \
+--delse_pretrain 6000 \
+--delse_iterations 2 \
+--n_epochs 150

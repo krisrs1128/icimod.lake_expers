@@ -17,6 +17,6 @@ python icimod.glacial-lakes-baselines/train.py \
   --optimizer sgd \
   --lr 3e-4 \
   --chip_size 400 \
-  --delse_pretrain 3000 \
+  --delse_pretrain 6000 \
   --delse_iterations 2 \
-  --n_epochs 100
+  --n_epochs 150
