@@ -11,7 +11,7 @@ request_gpus = 1
 +GPUJobLength = "medium"
 +WantGPULab = true
 +wantFlocking = true
-requirements = (CUDACapability > 6) && (Target.HasCHTCStaging == true) && (CUDAGlobalMemoryMb > 8000)
+requirements = (CUDACapability > 6) && (Target.HasCHTCStaging == true) && (CUDAGlobalMemoryMb > 10000)
 request_memory = 12GB
 request_disk = 125GB
 
