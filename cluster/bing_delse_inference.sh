@@ -8,7 +8,7 @@ conda activate /home/ksankaran/miniconda3/envs/lakes
 # copy data over from staging
 mkdir results data
 cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
-cp /staging/ksankaran/lakes/bing_glaciers_processed_small.tar.gz data/
+cp /staging/ksankaran/lakes/bing_processed_data.tar.gz data/
 #cp /staging/ksankaran/lakes/data/
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
 cp /staging/ksankaran/lakes/trained_models/bing-delse_best.pth data/
