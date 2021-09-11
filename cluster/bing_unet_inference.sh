@@ -15,7 +15,7 @@ cp /staging/ksankaran/lakes/trained_models/bing-unet_best.pth data/
 # unzip data and models
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 cd data
-tar -zxvf bing_glaciers_processed.tar.gz
+tar -zxvf bing_processed_data.tar.gz
 cd ..
 
 # perform inference and evaluation on test set
