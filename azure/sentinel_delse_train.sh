@@ -19,4 +19,5 @@ python icimod.glacial-lakes-baselines/train.py \
   --chip_size 400 \
   --delse_pretrain 6000 \
   --delse_iterations 2 \
+  --save_epoch 25 \
   --n_epochs 150
