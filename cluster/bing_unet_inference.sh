@@ -10,15 +10,17 @@ mkdir results data
 cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
 cp /staging/ksankaran/lakes/bing_processed_data.tar.gz data/
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
-cp /home/ksankaran/trained_models/bing_unet_trained.tar.gz data
 
 # unzip data and models
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 cd data
 tar -zxvf bing_processed_data.tar.gz
-tar -zxvf bing_unet_trained.tar.gz
-mv results/backup/*.pth .
 cd ..
+
+tar -zxvf trained_models.tar.gz
+cd trained_models
+tar -zxvf bing_unet_trained.tar.gz
+mv results/backup/*.pth ../data/
 
 # perform inference and evaluation on test set
 python icimod.glacial-lakes-baselines/inference.py \
