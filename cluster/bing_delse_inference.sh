@@ -9,16 +9,19 @@ conda activate /home/ksankaran/miniconda3/envs/lakes
 mkdir results data
 cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
 cp /staging/ksankaran/lakes/bing_processed_data.tar.gz data/
-#cp /staging/ksankaran/lakes/data/
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
-cp /staging/ksankaran/lakes/trained_models/bing-delse_best.pth data/
 
 # unzip data and models
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 cd data
-tar -zxvf bing_glaciers_processed_small.tar.gz
-mv bing_glaciers_processed_small.tar.gz bing
+tar -zxvf bing_processed_data.tar.gz
 cd ..
+
+tar -zxvf trained_models.tar.gz
+cd trained_models
+tar -zxvf sentinel_delse_trained.tar.gz
+mv results/backup/*.pth ../data/
+
 
 # perform inference
 python icimod.glacial-lakes-baselines/inference.py \

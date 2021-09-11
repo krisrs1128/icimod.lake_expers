@@ -10,13 +10,17 @@ mkdir results data
 cp /staging/ksankaran/lakes/labels/GL_3basins_2015* data/
 cp /staging/ksankaran/lakes/sentinel.tar.gz data/
 cp /staging/ksankaran/lakes/MS_DeepLab_resnet_trained_VOC.pth .
-cp /staging/ksankaran/lakes/trained_models/sentinel-unet_best.pth data/
 
 # unzip data and models
 tar -zxvf icimod.glacial-lakes-baselines.tar.gz
 cd data
 tar -zxvf sentinel.tar.gz
 cd ..
+
+tar -zxvf trained_models.tar.gz
+cd trained_models
+tar -zxvf sentinel_unet_trained.tar.gz
+mv results/backup/*.pth ../data/
 
 # inference and evaluation on 2015 data
 python icimod.glacial-lakes-baselines/inference.py \
