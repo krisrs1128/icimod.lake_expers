@@ -14,8 +14,10 @@ For inference, first make sure the trained model `pth` object is in
 ```
 condor_submit inference.submit executable=bing_unet_inference.sh
 condor_submit inference.submit executable=bing_delse_inference.sh
+condor_submit inference.submit executable=bing_snake_inference.sh
 condor_submit inference.submit executable=sentinel_unet_inference.sh
 condor_submit inference.submit executable=sentinel_delse_inference.sh
+condor_submit inference.submit executable=sentinel_snake_inference.sh
 ```
 
 To evaluate different GPU resources, you can use commands like,
