@@ -34,6 +34,7 @@ python icimod.glacial-lakes-baselines/evaluate.py \
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference_snake.py \
+  --gl_filename data/GL_3basins_2015.shp \
   --input_dir data/bing/images/ \
   --output_dir results/bing-snake/ \
   --overwrite \
