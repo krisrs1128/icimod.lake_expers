@@ -20,6 +20,7 @@ cd ..
 
 # inference and evaluation on 2015 data
 python icimod.glacial-lakes-baselines/inference_snake.py \
+  --gl_filename data/GL_3basins_2015.shp \
   --input_dir data/sentinel/splits/test/images/ \
   --output_dir results/sentinel_test-snake/ \
   --overwrite \
@@ -27,6 +28,7 @@ python icimod.glacial-lakes-baselines/inference_snake.py \
   --verbose
 
 python icimod.glacial-lakes-baselines/evaluate.py \
+  --gl_filename data/GL_3basins_2015.shp \
   --inference_dir results/sentinel_test-snake \
   --save_dir results/sentinel_test-snake \
   --vector_label data/GL_3basins_2015.shp
