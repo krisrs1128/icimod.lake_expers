@@ -32,6 +32,7 @@ CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
   --optimizer sgd \
   --lr 5e-4 \
   --chip_size 400 \
+  --save_epoch 151 \
   --n_epochs 150
 
 rm MS_DeepLab_resnet_trained_VOC.pth
