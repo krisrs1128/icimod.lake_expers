@@ -21,6 +21,7 @@ tar -zxvf trained_models.tar.gz
 cd trained_models
 tar -zxvf bing_unet_trained.tar.gz
 mv results/backup/*.pth ../data/
+cd ..
 
 # perform inference and evaluation on test set
 python icimod.glacial-lakes-baselines/inference.py \

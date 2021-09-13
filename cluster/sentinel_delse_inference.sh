@@ -21,7 +21,7 @@ tar -zxvf trained_models.tar.gz
 cd trained_models
 tar -zxvf sentinel_delse_trained.tar.gz
 mv results/backup/*.pth ../data/
-
+cd ..
 
 # inference and evaluation on 2015 data
 python icimod.glacial-lakes-baselines/inference.py \
