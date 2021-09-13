@@ -46,5 +46,5 @@ python icimod.glacial-lakes-baselines/evaluate.py \
   --save_dir results/bing-snake \
   --vector_label data/GL_3basins_2015.shp
 
-rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
+rm icimod.glacial-lakes-baselines.tar.gz
 tar -zcvf bing_snake_inference.tar.gz results/
