@@ -47,4 +47,5 @@ python icimod.glacial-lakes-baselines/evaluate.py \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz
+rm -rf data/
 tar -zcvf sentinel_snake_inference.tar.gz results/

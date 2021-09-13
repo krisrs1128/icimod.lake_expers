@@ -40,4 +40,5 @@ CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
   --n_epochs 150
 
 rm MS_DeepLab_resnet_trained_VOC.pth
+rm -rf data/
 tar -zcvf sentinel_delse_trained.tar.gz results/
