@@ -8,11 +8,11 @@ when_to_transfer_output = ON_EXIT
 transfer_input_files = /home/ksankaran/glaciers/icimod.glacial-lakes-baselines.tar.gz,/home/ksankaran/glaciers/trained_models.tar.gz
 request_cpus = 1
 request_gpus = 1
-+GPUJobLength = "short"
++GPUJobLength = "long"
 +WantGPULab = true
 +wantFlocking = true
 requirements = (CUDAGlobalMemoryMb > 4000) && (Target.HasCHTCStaging == true)
 request_memory = 12GB
-request_disk = 120GB
+request_disk = 150GB
 
 queue
