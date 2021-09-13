@@ -32,9 +32,9 @@ CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
   --log_dir results/logs \
   --batch_size 3 \
   --optimizer sgd \
-  --lr 3e-4 \
+  --lr 1e-4 \
   --chip_size 400 \
-  --delse_pretrain 3000 \
+  --delse_pretrain 10000 \
   --delse_iterations 2 \
   --save_epoch 41 \
   --n_epochs 40
