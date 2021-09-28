@@ -19,7 +19,7 @@ cd ..
 
 tar -zxvf trained_models.tar.gz
 cd trained_models
-tar -zxvf sentinel_delse_trained.tar.gz
+tar -zxvf bing_delse_trained.tar.gz
 mv results/backup/*.pth ../data/
 cd ..
 
