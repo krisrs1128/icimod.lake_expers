@@ -6,6 +6,8 @@ condor_submit train.submit executable=bing_unet_train.sh
 condor_submit train.submit executable=bing_delse_train.sh
 condor_submit train.submit executable=sentinel_unet_train.sh
 condor_submit train.submit executable=sentinel_delse_train.sh
+condor_submit train.submit executable=sentinel_delse-historical_train.sh
+condor_submit train.submit executable=sentinel_unet-historical_train.sh
 ```
 
 For inference, first make sure the trained model `pth` object is in

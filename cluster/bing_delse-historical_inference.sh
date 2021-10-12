@@ -33,7 +33,6 @@ python icimod.glacial-lakes-baselines/inference.py \
   --model_pth data/bing-delse_best.pth \
   --inference_dir results/bing_test-delse/ \
   --dataset bing \
-  --delse_iterations 2 \
   --historical \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
@@ -52,7 +51,6 @@ python icimod.glacial-lakes-baselines/inference.py \
   --model_pth data/bing-delse_best.pth \
   --inference_dir results/bing-delse/ \
   --dataset bing \
-  --delse_iterations 2 \
   --historical \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
