@@ -29,7 +29,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/sentinel-unet_best.pth \
+  --model_pth data/sentinel-unet-historical_best.pth \
   --inference_dir results/sentinel_val-unet/ \
   --dataset sentinel \
   --historical
@@ -45,7 +45,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/sentinel-unet_best.pth \
+  --model_pth data/sentinel-unet-historical_best.pth \
   --inference_dir results/sentinel-unet/ \
   --dataset sentinel \
   --historical

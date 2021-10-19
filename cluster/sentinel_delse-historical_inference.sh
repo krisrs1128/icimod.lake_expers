@@ -30,7 +30,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/sentinel-delse_best.pth \
+  --model_pth data/sentinel-delse-historical_best.pth \
   --inference_dir results/sentinel_test-delse/ \
   --dataset sentinel \
   --historical \
@@ -48,7 +48,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/sentinel-delse_best.pth \
+  --model_pth data/sentinel-delse-historical_best.pth \
   --inference_dir results/sentinel-delse/ \
   --dataset sentinel \
   --historical \

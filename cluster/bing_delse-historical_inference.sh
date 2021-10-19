@@ -30,7 +30,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/bing-delse_best.pth \
+  --model_pth data/bing-delse-historical_best.pth \
   --inference_dir results/bing_test-delse/ \
   --dataset bing \
   --historical \
@@ -48,7 +48,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/bing-delse_best.pth \
+  --model_pth data/bing-delse-historical_best.pth \
   --inference_dir results/bing-delse/ \
   --dataset bing \
   --historical \

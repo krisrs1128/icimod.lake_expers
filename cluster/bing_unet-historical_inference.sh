@@ -29,7 +29,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/bing-unet_best.pth \
+  --model_pth data/bing-unet-historical_best.pth \
   --inference_dir results/bing_test-unet/ \
   --historical
 
@@ -44,7 +44,7 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/bing-unet_best.pth \
+  --model_pth data/bing-unet-historical_best.pth \
   --inference_dir results/bing-unet/ \
   --historical
 
