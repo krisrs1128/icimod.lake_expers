@@ -31,14 +31,14 @@ python icimod.glacial-lakes-baselines/inference.py \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth data/sentinel-delse-historical_best.pth \
-  --inference_dir results/sentinel_test-delse/ \
+  --inference_dir results/sentinel_test-delse-historical/ \
   --dataset sentinel \
   --historical \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel_test-delse \
-  --save_dir results/sentinel_test-delse \
+  --inference_dir results/sentinel_test-delse-historical \
+  --save_dir results/sentinel_test-delse-historical \
   --vector_label data/GL_3basins_2015.shp
 
 # inference and evaluation overall
@@ -49,14 +49,14 @@ python icimod.glacial-lakes-baselines/inference.py \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth data/sentinel-delse-historical_best.pth \
-  --inference_dir results/sentinel-delse/ \
+  --inference_dir results/sentinel-delse-historical/ \
   --dataset sentinel \
   --historical \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel-delse \
-  --save_dir results/sentinel-delse \
+  --inference_dir results/sentinel-delse-historical \
+  --save_dir results/sentinel-delse-historical \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth

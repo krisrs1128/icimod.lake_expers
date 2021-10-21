@@ -29,13 +29,13 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/bing-historical-unet_best.pth \
-  --inference_dir results/bing_test-unet/ \
+  --model_pth data/bing-unet-historical_best.pth \
+  --inference_dir results/bing_test-unet-historical/ \
   --historical
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing_test-unet \
-  --save_dir results/bing_test-unet \
+  --inference_dir results/bing_test-unet-historical \
+  --save_dir results/bing_test-unet-historical \
   --vector_label data/GL_3basins_2015.shp
 
 # inference and evaluation overall
@@ -44,13 +44,13 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth data/bing-historical-unet_best.pth \
-  --inference_dir results/bing-unet/ \
+  --model_pth data/bing-unet-historical_best.pth \
+  --inference_dir results/bing-unet-historical/ \
   --historical
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing-unet \
-  --save_dir results/bing-unet \
+  --inference_dir results/bing-unet-historical \
+  --save_dir results/bing-unet-historical \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth

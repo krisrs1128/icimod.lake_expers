@@ -21,7 +21,7 @@ rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
 CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
---experiment_name bing-historical-unet \
+--experiment_name bing-unet-historical \
 --data_dir data/ \
 --dataset bing \
 --delse_pth MS_DeepLab_resnet_trained_VOC.pth \

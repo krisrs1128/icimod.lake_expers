@@ -21,7 +21,7 @@ rm icimod.glacial-lakes-baselines.tar.gz
 
 # start training
 CUDA_LAUNCH_BLOCKING=1 python icimod.glacial-lakes-baselines/train.py \
-  --experiment_name sentinel-historical-unet \
+  --experiment_name sentinel-unet-historical \
   --data_dir data/ \
   --dataset sentinel \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth \
