@@ -30,6 +30,7 @@ python icimod.glacial-lakes-baselines/inference_snake.py \
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir results/bing_test-snake \
   --save_dir results/bing_test-snake \
+  --grid 2 \
   --vector_label data/GL_3basins_2015.shp
 
 # inference and evaluation overall
@@ -44,6 +45,7 @@ python icimod.glacial-lakes-baselines/inference_snake.py \
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir results/bing-snake \
   --save_dir results/bing-snake \
+  --grid 2 \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz
