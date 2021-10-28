@@ -13,3 +13,5 @@ cd ~/icimod.glacial-lakes-baselines/utils
 python preprocess.py --in_dir /datadrive/glaciers/bing_glaciers/processed/bing/images --out_dir /datadrive/glaciers/bing_glaciers/processed/bing
 python preprocess.py --split --in_dir /datadrive/glaciers/bing_glaciers/processed/bing/images --out_dir /datadrive/glaciers/bing_glaciers/processed/bing/splits
 ```
+
+bash ~/icimod.lake_expers/transfer.sh . ../../results/bing_test-unet-png/
