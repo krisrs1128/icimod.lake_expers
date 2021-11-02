@@ -16,13 +16,14 @@ For inference, first make sure the trained model `pth` object is in
 `/staging/ksankaran/lakes/trained_models/`. Then, run
 
 ```
-condor_submit inference.submit executable=bing_unet_inference.sh
-condor_submit inference.submit executable=bing_unet-historical_inference.sh
-condor_submit inference.submit executable=bing_delse_inference.sh
-condor_submit inference.submit executable=bing_delse-historical_inference.sh
 condor_submit inference.submit executable=sentinel_unet_inference.sh
 condor_submit inference.submit executable=sentinel_unet-historical_inference.sh
+condor_submit inference.submit executable=bing_unet_inference.sh
+condor_submit inference.submit executable=bing_unet-historical_inference.sh
+condor_submit inference.submit executable=sentinel_delse_inference.sh
 condor_submit inference.submit executable=sentinel_delse-historical_inference.sh
+condor_submit inference.submit executable=bing_delse_inference.sh
+condor_submit inference.submit executable=bing_delse-historical_inference.sh
 condor_submit inference.submit executable=sentinel_snake_inference.sh
 condor_submit inference.submit executable=bing_snake_inference.sh
 ```
