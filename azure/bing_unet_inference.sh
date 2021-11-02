@@ -12,12 +12,11 @@ python icimod.glacial-lakes-baselines/inference.py \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/bing-unet_best.pth \
-  --divergence \
-  --inference_dir /datadrive/results/inference/bing_test-unet/
+  --inference_dir /datadrive/results/inference/compressed/results/bing_test-unet/
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir /datadrive/results/inference/bing_test-unet \
-  --save_dir /datadrive/results/inference/bing_test-unet \
+  --inference_dir /datadrive/results/inference/compressed/results/bing_test-unet \
+  --save_dir /datadrive/results/inference/compressed/results/bing_test-unet \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
 
 # inference and evaluation overall
@@ -27,10 +26,9 @@ python icimod.glacial-lakes-baselines/inference.py \
   --meta_dir meta \
   --stats_fn statistics.csv \
   --model_pth /datadrive/results/backup/bing-unet_best.pth \
-  --divergence \
-  --inference_dir /datadrive/results/inference/bing-unet/
+  --inference_dir /datadrive/results/inference/compressed/results/bing-unet/
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing-unet \
-  --save_dir results/bing-unet \
+  --inference_dir /datadrive/results/inference/compressed/results/bing-unet \
+  --save_dir /datadrive/results/inference/compressed/results/bing-unet \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
