@@ -24,19 +24,21 @@ mv results/backup/*.pth ../data/
 cd ..
 
 # inference and evaluation on 2015 test data
-python icimod.glacial-lakes-baselines/inference.py \
-  --data_dir data/sentinel/splits/test \
-  --x_dir images \
-  --meta_dir meta \
-  --stats_fn statistics.csv \
-  --model_pth data/sentinel-unet_best.pth \
-  --inference_dir results/sentinel_test-unet/ \
-  --dataset sentinel
+for split_type in test val; do
+  python icimod.glacial-lakes-baselines/inference.py \
+    --data_dir data/sentinel/splits/${split_type} \
+    --x_dir images \
+    --meta_dir meta \
+    --stats_fn statistics.csv \
+    --model_pth data/sentinel-unet_best.pth \
+    --inference_dir results/sentinel_${split_type}-unet/ \
+    --dataset sentinel
 
-python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel_test-unet \
-  --save_dir results/sentinel_test-unet \
-  --vector_label data/GL_3basins_2015.shp
+  python icimod.glacial-lakes-baselines/evaluate.py \
+    --inference_dir results/sentinel_${split_type}-unet \
+    --save_dir results/sentinel_${split_type}-unet \
+    --vector_label data/GL_3basins_2015.shp
+done
 
 # inference and evaluation on 2015 val data
 python icimod.glacial-lakes-baselines/inference.py \

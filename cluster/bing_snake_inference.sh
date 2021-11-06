@@ -18,20 +18,21 @@ cd data
 tar -zxvf bing_processed_data.tar.gz
 cd ..
 
-# inference and evaluation on 2015 data
-python icimod.glacial-lakes-baselines/inference_snake.py \
-  --gl_filename data/GL_3basins_2015.shp \
-  --input_dir data/bing/splits/test/images/ \
-  --output_dir results/bing_test-snake/ \
-  --overwrite \
-  --image_source bing \
-  --verbose
+for split_type in test val; do
+  python icimod.glacial-lakes-baselines/inference_snake.py \
+    --gl_filename data/GL_3basins_2015.shp \
+    --input_dir data/bing/splits/${split_type}/images/ \
+    --output_dir results/bing_${split_type}-snake/ \
+    --overwrite \
+    --image_source bing \
+    --verbose
 
-python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing_test-snake \
-  --save_dir results/bing_test-snake \
-  --grid 2 \
-  --vector_label data/GL_3basins_2015.shp
+  python icimod.glacial-lakes-baselines/evaluate.py \
+    --inference_dir results/bing_${split_type}-snake \
+    --save_dir results/bing_${split_type}-snake \
+    --grid 2 \
+    --vector_label data/GL_3basins_2015.shp
+done
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference_snake.py \

@@ -24,21 +24,23 @@ mv results/backup/*.pth ../data/
 cd ..
 
 # inference and evaluation on 2015 data
-python icimod.glacial-lakes-baselines/inference.py \
-  --model delse \
-  --data_dir data/sentinel/splits/test \
-  --x_dir images \
-  --meta_dir meta \
-  --stats_fn statistics.csv \
-  --model_pth data/sentinel-delse_best.pth \
-  --inference_dir results/sentinel_test-delse/ \
-  --dataset sentinel \
-  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+for split_type in test val; do
+  python icimod.glacial-lakes-baselines/inference.py \
+    --model delse \
+    --data_dir data/sentinel/splits/${split_type} \
+    --x_dir images \
+    --meta_dir meta \
+    --stats_fn statistics.csv \
+    --model_pth data/sentinel-delse_best.pth \
+    --inference_dir results/sentinel_${split_type}-delse/ \
+    --dataset sentinel \
+    --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
-python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel_test-delse \
-  --save_dir results/sentinel_test-delse \
-  --vector_label data/GL_3basins_2015.shp
+  python icimod.glacial-lakes-baselines/evaluate.py \
+    --inference_dir results/sentinel_${split_type}-delse \
+    --save_dir results/sentinel_${split_type}-delse \
+    --vector_label data/GL_3basins_2015.shp
+done
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \

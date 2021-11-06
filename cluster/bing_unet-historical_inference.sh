@@ -23,20 +23,21 @@ tar -zxvf bing_unet-historical_trained.tar.gz
 mv results/backup/*.pth ../data/
 cd ..
 
-# perform inference and evaluation on test set
-python icimod.glacial-lakes-baselines/inference.py \
-  --data_dir data/bing/splits/test \
-  --x_dir images \
-  --meta_dir meta \
-  --stats_fn statistics.csv \
-  --model_pth data/bing-unet-historical_best.pth \
-  --inference_dir results/bing_test-unet-historical/ \
-  --historical
+for split_type in test val; do
+  python icimod.glacial-lakes-baselines/inference.py \
+    --data_dir data/bing/splits/${split_type} \
+    --x_dir images \
+    --meta_dir meta \
+    --stats_fn statistics.csv \
+    --model_pth data/bing-unet-historical_best.pth \
+    --inference_dir results/bing_${split_type}-unet-historical/ \
+    --historical
 
-python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing_test-unet-historical \
-  --save_dir results/bing_test-unet-historical \
-  --vector_label data/GL_3basins_2015.shp
+  python icimod.glacial-lakes-baselines/evaluate.py \
+    --inference_dir results/bing_${split_type}-unet-historical \
+    --save_dir results/bing_${split_type}-unet-historical \
+    --vector_label data/GL_3basins_2015.shp
+done
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \

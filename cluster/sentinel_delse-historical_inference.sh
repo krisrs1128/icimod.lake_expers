@@ -24,22 +24,24 @@ mv results/backup/*.pth ../data/
 cd ..
 
 # inference and evaluation on 2015 data
-python icimod.glacial-lakes-baselines/inference.py \
-  --model delse \
-  --data_dir data/sentinel/splits/test \
-  --x_dir images \
-  --meta_dir meta \
-  --stats_fn statistics.csv \
-  --model_pth data/sentinel-delse-historical_best.pth \
-  --inference_dir results/sentinel_test-delse-historical/ \
-  --dataset sentinel \
-  --historical \
-  --delse_pth MS_DeepLab_resnet_trained_VOC.pth
+for split_type in test val; do
+  python icimod.glacial-lakes-baselines/inference.py \
+    --model delse \
+    --data_dir data/sentinel/splits/${split_type} \
+    --x_dir images \
+    --meta_dir meta \
+    --stats_fn statistics.csv \
+    --model_pth data/sentinel-delse-historical_best.pth \
+    --inference_dir results/sentinel_${split_type}-delse-historical/ \
+    --dataset sentinel \
+    --historical \
+    --delse_pth MS_DeepLab_resnet_trained_VOC.pth
 
-python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel_test-delse-historical \
-  --save_dir results/sentinel_test-delse-historical \
-  --vector_label data/GL_3basins_2015.shp
+  python icimod.glacial-lakes-baselines/evaluate.py \
+    --inference_dir results/sentinel_${split_type}-delse-historical \
+    --save_dir results/sentinel_${split_type}-delse-historical \
+    --vector_label data/GL_3basins_2015.shp
+done
 
 # inference and evaluation overall
 python icimod.glacial-lakes-baselines/inference.py \
