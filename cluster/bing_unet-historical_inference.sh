@@ -36,6 +36,7 @@ for split_type in test val; do
   python icimod.glacial-lakes-baselines/evaluate.py \
     --inference_dir results/bing_${split_type}-unet-historical \
     --save_dir results/bing_${split_type}-unet-historical \
+    --mode prob \
     --vector_label data/GL_3basins_2015.shp
 done
 
@@ -52,6 +53,7 @@ python icimod.glacial-lakes-baselines/inference.py \
 python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir results/bing-unet-historical \
   --save_dir results/bing-unet-historical \
+  --mode prob \
   --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
