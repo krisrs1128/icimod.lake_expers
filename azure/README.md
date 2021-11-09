@@ -18,3 +18,11 @@ bash ~/icimod.lake_expers/transfer.sh . ../../results/bing_test-unet-png/
 
 python evaluate.py --inference_dir /datadrive/results/inference/sentinel_test-snake.4/ --save_dir /datadrive/results/inference/sentinel_test-snake.4/ --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
 python evaluate.py --inference_dir /datadrive/results/inference/sentinel_post-snake.4 --save_dir /datadrive/results/inference/sentinel_post-snake.4 --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
+
+for f in $(ls *.tar.gz); do
+  tar -zxvf $f;
+done;
+
+for f in $(ls -d *); do
+  ~/icimod.lake_expers/transfer.sh $f $f-images;
+done;
