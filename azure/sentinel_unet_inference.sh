@@ -16,9 +16,10 @@ python icimod.glacial-lakes-baselines/inference.py \
   --dataset sentinel
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir /datadrive/results/inference/sentinel_test-unet/ \
-  --save_dir /datadrive/results/inference/sentinel_test-unet/ \
+  --inference_dir /datadrive/results/inference/compressed/results/sentinel_test-unet/ \
+  --save_dir /datadrive/results/inference/compressed/results/sentinel_test-unet/ \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp \
+  --mode prob \
   --dataset sentinel
 
 # inference and evaluation overall
@@ -35,4 +36,5 @@ python icimod.glacial-lakes-baselines/evaluate.py \
   --inference_dir /datadrive/results/inference/sentinel-unet/ \
   --save_dir /datadrive/results/inference/sentinel-unet/ \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp \
+  --mode prob \
   --dataset sentinel
