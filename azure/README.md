@@ -23,6 +23,6 @@ for f in $(ls *.tar.gz); do
   tar -zxvf $f;
 done;
 
-for f in $(ls -d *); do
-  ~/icimod.lake_expers/transfer.sh $f $f-images;
+for f in $(ls -d /datadrive/results/inference/compressed/results/*sentinel*); do
+  bash transfer.sh $f $f-images;
 done;
