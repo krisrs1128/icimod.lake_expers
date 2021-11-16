@@ -12,13 +12,13 @@ for split_type in test val; do
     --x_dir images \
     --meta_dir meta \
     --stats_fn statistics.csv \
-    --model_pth /datadrive/results/backup/trained_models/results/backup/bing-unet_best.pth \
+    --model_pth /datadrive/results/backup/bing-unet_best.pth \
     --inference_dir /datadrive/results/inference/compressed/results/bing_${split_type}-unet
 
   python icimod.glacial-lakes-baselines/evaluate.py \
-    --inference_dir results/bing_${split_type}-unet \
+    --eval_paths /datadrive/results/inference/bing_${split_type}_paths.csv \
     --save_dir /datadrive/results/inference/compressed/results/bing_${split_type}-unet \
-    --mode prob \
+    --n_jobs 50 \
     --vector_label data/GL_3basins_2015.shp
 done
 
@@ -28,10 +28,11 @@ python icimod.glacial-lakes-baselines/inference.py \
   --x_dir images \
   --meta_dir meta \
   --stats_fn statistics.csv \
-  --model_pth /datadrive/results/backup/trained_models/results/backup/bing-unet_best.pth \
+  --model_pth /datadrive/results/backup/bing-unet_best.pth \
   --inference_dir /datadrive/results/inference/compressed/results/bing-unet/
 
 python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir /datadrive/results/inference/compressed/results/bing-unet \
   --save_dir /datadrive/results/inference/compressed/results/bing-unet \
+  --n_jobs 50 \
+  --eval_paths /datadrive/results/inference/bing_paths.csv \
   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
