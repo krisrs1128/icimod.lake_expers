@@ -36,15 +36,9 @@ for split_type in test val; do
     --dataset sentinel \
     --historical \
     --delse_pth MS_DeepLab_resnet_trained_VOC.pth
-
-  python icimod.glacial-lakes-baselines/evaluate.py \
-    --inference_dir results/sentinel_${split_type}-delse-historical \
-    --save_dir results/sentinel_${split_type}-delse-historical \
-    --mode prob \
-    --vector_label data/GL_3basins_2015.shp
 done
 
-# inference and evaluation overall
+# inference overall
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
   --data_dir data/sentinel/ \
@@ -56,12 +50,6 @@ python icimod.glacial-lakes-baselines/inference.py \
   --dataset sentinel \
   --historical \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
-
-python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel-delse-historical \
-  --save_dir results/sentinel-delse-historical \
-  --mode prob \
-  --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
 rm -rf data/

@@ -23,7 +23,7 @@ tar -zxvf sentinel_unet_trained.tar.gz
 mv results/backup/*.pth ../data/
 cd ..
 
-# inference and evaluation on 2015 test data
+# inference 2015 test data
 for split_type in test val; do
   python icimod.glacial-lakes-baselines/inference.py \
     --data_dir data/sentinel/splits/${split_type} \
@@ -33,15 +33,9 @@ for split_type in test val; do
     --model_pth data/sentinel-unet_best.pth \
     --inference_dir results/sentinel_${split_type}-unet/ \
     --dataset sentinel
-
-  python icimod.glacial-lakes-baselines/evaluate.py \
-    --inference_dir results/sentinel_${split_type}-unet \
-    --save_dir results/sentinel_${split_type}-unet \
-    --mode prob \
-    --vector_label data/GL_3basins_2015.shp
 done
 
-# inference and evaluation overall
+# inference overall
 python icimod.glacial-lakes-baselines/inference.py \
   --data_dir data/sentinel/ \
   --x_dir images \
@@ -50,12 +44,6 @@ python icimod.glacial-lakes-baselines/inference.py \
   --model_pth data/sentinel-unet_best.pth \
   --inference_dir results/sentinel-unet/ \
   --dataset sentinel
-
-python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/sentinel-unet \
-  --save_dir results/sentinel-unet \
-  --mode prob \
-  --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
 rm -rf data/

@@ -36,15 +36,9 @@ for split_type in test val; do
     --dataset bing \
     --historical \
     --delse_pth MS_DeepLab_resnet_trained_VOC.pth
-
-  python icimod.glacial-lakes-baselines/evaluate.py \
-    --inference_dir results/bing_${split_type}-delse-historical \
-    --save_dir results/bing_${split_type}-delse-historical \
-    --mode prob \
-    --vector_label data/GL_3basins_2015.shp
 done
 
-# inference and evaluation overall
+# inference overall
 python icimod.glacial-lakes-baselines/inference.py \
   --model delse \
   --data_dir data/bing/ \
@@ -56,12 +50,6 @@ python icimod.glacial-lakes-baselines/inference.py \
   --dataset bing \
   --historical \
   --delse_pth MS_DeepLab_resnet_trained_VOC.pth
-
-python icimod.glacial-lakes-baselines/evaluate.py \
-  --inference_dir results/bing-delse-historical \
-  --save_dir results/bing-delse-historical \
-  --mode prob \
-  --vector_label data/GL_3basins_2015.shp
 
 rm icimod.glacial-lakes-baselines.tar.gz MS_DeepLab_resnet_trained_VOC.pth
 rm -rf data/
