@@ -55,8 +55,7 @@ Here are some commands to run model evaluation on already computed inferences.
 ```
 for model in unet unet-historical delse delse-historical; do
   for dataset in bing sentinel; do
-    echo $model $dataset;
-    #bash icimod.lake_expers/azure/eval.sh $model $dataset &
+    bash icimod.lake_expers/azure/eval.sh $model $dataset &
   done;
 done;
 
