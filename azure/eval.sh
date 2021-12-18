@@ -14,35 +14,18 @@ export SKIMAGE_DATADIR=$(pwd)
 eval "$(conda shell.bash hook)"
 conda activate /anaconda/envs/lakes
 
-# # perform evaluation on test and val sets
-# for split_type in test val; do
-#   python icimod.glacial-lakes-baselines/evaluate.py \
-#     --eval_paths /datadrive/results/inference/eval_paths/${2}_${split_type}-${1}.csv \
-#     --save_dir /datadrive/results/inference/compressed/results/${2}_${split_type}-${1} \
-#     --num_workers 5 \
-#     --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
-# done
-#
-# # evaluation overall
-# python icimod.glacial-lakes-baselines/evaluate.py \
-#   --save_dir /datadrive/results/inference/compressed/results/${2}-${1} \
-#   --num_workers 5 \
-#   --eval_paths /datadrive/results/inference/eval_paths/${2}-${1}.csv \
-#   --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp
-
-# evaluation recent
-for split_type in train test new; do
-  python icimod.glacial-lakes-baselines/evaluate.py \
-    --save_dir /datadrive/results/inference/compressed/results/${2}-${1} \
-    --num_workers 10\
-    --eval_paths /datadrive/results/inference/eval_paths/${2}-${1}_recent_${split_type}.csv \
-    --fname metrics_recent_${split_type}.csv \
-    --vector_label /datadrive/snake/lakes/labeling/${2}/${2}_combined.shp
-  done;
-
+# evaluation overall
 python icimod.glacial-lakes-baselines/evaluate.py \
   --save_dir /datadrive/results/inference/compressed/results/${2}-${1} \
-  --num_workers 10\
-  --eval_paths /datadrive/results/inference/eval_paths/${2}-${1}_recent.csv \
-  --fname metrics_recent.csv \
+  --num_workers 20 \
+  --eval_paths /datadrive/results/inference/eval_paths/${2}-${1}.csv \
+  --vector_label /datadrive/snake/lakes/GL_3basins_2015.shp \
+  --fname metrics_${2}_${1}.csv
+
+# evaluation recent label
+python icimod.glacial-lakes-baselines/evaluate.py \
+  --save_dir /datadrive/results/inference/compressed/results/${2}-${1} \
+  --num_workers 20 \
+  --eval_paths /datadrive/results/inference/eval_paths/${2}-${1}.csv \
   --vector_label /datadrive/snake/lakes/labeling/${2}/${2}_combined.shp
+  --fname metrics_${2}_${1}.csv

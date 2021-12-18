@@ -14,6 +14,11 @@ This can be used to unzip a collection of zipped files.
 for f in $(ls *.tar.gz); do
   tar -zxvf $f;
 done;
+
+# same for zipping
+for f in $(ls -d *); do
+  tar -zcvf $f.tar.gz $f;
+done;
 ```
 
 This creates png images corresponding to all the tif imagery in a set of
@@ -55,7 +60,7 @@ Here are some commands to run model evaluation on already computed inferences.
 ```
 for model in unet unet-historical delse delse-historical; do
   for dataset in bing sentinel; do
-    bash icimod.lake_expers/azure/eval.sh $model $dataset &
+    bash icimod.lake_expers/azure/eval.sh $model $dataset
   done;
 done;
 
